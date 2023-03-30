@@ -1,0 +1,29 @@
+untuk menghindari EMI :
+
+Dari sisi hardware: pasang opto isolator, filter induktor, tvs, dioda clamping.
+Dari sisi software: aktifkan watchdog, Brown Out, sebisa mungkin hindari penggunaan interupsi eksternal tipe Pin change.
+
+
+biar awet
+sumber *bagus nya masing masing external aja
+	1. arduino mega : jack 9VDC (biar ga cepet panas)
+	2. sensor 	
+		adapter (lansung)
+		regulator (kalo ambil dari pinVIN perhatikan beban arus yang digunakan)
+			  (biar aman tetap untuk tegangan ambil aja dari adapter) 
+==============================================================================================
+1. jika sensor membutuhkan arus 1 amper, tetapi psu memberi 3 amper. apakah sensor akan awet ? 
+	Ya, sensor masih akan berfungsi dengan baik dan tidak akan terpengaruh oleh arus yang 
+	diberikan oleh sumber daya sepanjang arus tersebut sesuai dengan spesifikasi yang ditentukan 
+	oleh produsen sensor.
+
+2. untuk pin(+) regulator masuk ke input tegangan sensor, untuk pin(-) regulator 
+   masuk ke input gnd sensor apakah benar
+	pin(+) --> input sensor, pin(-) --> gnd arduino + gnd sensor
+
+3. jadi dengan cara itu aman aktif 24 jam ?
+	1. memisahkan sumber tegangan untuk Arduino dan sensor dapat membantu menjaga kestabilan dan kinerja sistem secara keseluruhan. 
+	2. Jika sumber tegangan untuk sensor dan Arduino berasal dari sumber yang berbeda, pastikan bahwa ground-nya terhubung agar arus dapat mengalir dengan baik dan sistem tetap stabil. 
+	3. kualitas komponen
+	4. suhu dan ventilasi
+	5. pemeliharaan
